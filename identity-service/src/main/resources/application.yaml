@@ -1,0 +1,35 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /identity
+spring:
+  application:
+    name: identity-service
+  datasource:
+    url: "jdbc:mysql://localhost:3307/identity_service"
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+    username: root
+    password: anhproqn999
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8180/realms/movie-web
+
+idp:
+  url: http://localhost:8180
+  client-id: Movie_web
+  client-secret: J0x148IBCmFNDn94eiomwyNgbNCzBuuS
+
+app:
+  services:
+    profile: http://localhost:8081/profile
+
+google:
+  clientId: "652210943582-mimqrnmes6ukon9n8jmqcdth4lj61lqf.apps.googleusercontent.com"
+  clientSecret: "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"
+  redirectUri: "http://localhost:3000/authenticate"
